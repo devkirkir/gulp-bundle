@@ -17,6 +17,10 @@
 -   "gulp-htmlmin": "^5.0.1"
 -   "gulp-webp-html": "^1.0.2"
 
+### PUG
+
+-   "gulp-pug": "^5.0.0"
+
 ### SCSS
 
 -   "sass": "^1.58.3"

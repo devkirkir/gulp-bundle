@@ -10,6 +10,12 @@ const path = {
         dest: pathDest,
     },
 
+    pug: {
+        src: [`${pathSrc}/index.pug`, `${pathSrc}/pages/*.pug`],
+        watch: `${pathSrc}/**/*.pug`,
+        dest: pathDest,
+    },
+
     scss: {
         src: `${pathSrc}/scss/*.scss`,
         watch: `${pathSrc}/**/*.scss`,

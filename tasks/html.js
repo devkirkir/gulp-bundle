@@ -8,7 +8,7 @@ import conf from "../config/conf.js";
 
 const html = () => {
     return gulp
-        .src(path.html.src)
+        .src(path.html.src, { allowEmpty: true })
         .pipe(fileInclude())
         .pipe(webpHtml())
         .pipe(htmlmin(conf.htmlMin))
