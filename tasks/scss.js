@@ -13,15 +13,15 @@ import conf, { isProd } from "../config/conf.js";
 const sass = gulpSass(dartSass);
 
 const scss = () => {
-    return gulp
-        .src(path.scss.src, { sourcemaps: isProd })
-        .pipe(sass())
-        .pipe(webpCss())
-        .pipe(autoPrefixer())
-        .pipe(gulp.dest(path.scss.dest))
-        .pipe(csso())
-        .pipe(rename(conf.rename))
-        .pipe(gulp.dest(path.scss.dest, { sourcemaps: isProd }));
+  return gulp
+    .src(path.scss.src, { sourcemaps: isProd })
+    .pipe(sass())
+    .pipe(autoPrefixer())
+    .pipe(gulp.dest(path.scss.dest))
+    .pipe(csso())
+    .pipe(webpCss())
+    .pipe(rename(conf.rename))
+    .pipe(gulp.dest(path.scss.dest, { sourcemaps: isProd }));
 };
 
 export default scss;

@@ -13,27 +13,30 @@ import fonts from "./tasks/fonts.js";
 import path from "./config/path.js";
 
 const server = () => {
-    browserSync.init({
-        server: {
-            baseDir: path.root,
-        },
-    });
+  browserSync.init({
+    server: {
+      baseDir: path.root,
+    },
+    // proxy: {
+    //     target: path.serverRoot
+    // }
+  });
 };
 
 const watcher = () => {
-    gulp.watch(path.html.watch, html).on("all", browserSync.reload);
-    gulp.watch(path.pug.watch, pug).on("all", browserSync.reload);
-    gulp.watch(path.scss.watch, scss).on("all", browserSync.reload);
-    gulp.watch(path.js.watch, js).on("all", browserSync.reload);
-    gulp.watch(path.img.watch, img).on("all", browserSync.reload);
-    gulp.watch(path.fonts.watch, fonts).on("all", browserSync.reload);
+  gulp.watch(path.html.watch, html).on("all", browserSync.reload);
+  gulp.watch(path.pug.watch, pug).on("all", browserSync.reload);
+  gulp.watch(path.scss.watch, scss).on("all", browserSync.reload);
+  gulp.watch(path.js.watch, js).on("all", browserSync.reload);
+  gulp.watch(path.img.watch, img).on("all", browserSync.reload);
+  gulp.watch(path.fonts.watch, fonts).on("all", browserSync.reload);
 };
 
 export const watch = gulp.series(gulp.parallel(watcher, server));
 
 export const build = gulp.series(
-    clear,
-    gulp.parallel(html, pug, scss, js, img, fonts)
+  clear,
+  gulp.parallel(html, pug, scss, js, img, fonts)
 );
 
 export const dev = gulp.series(build, watch);
